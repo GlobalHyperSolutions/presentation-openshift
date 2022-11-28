@@ -1,0 +1,139 @@
+#-----------------------------------------------------------------------------------------
+    # POSTGRE DATABASE SECRET
+    #-----------------------------------------------------------------------------------------
+    apiVersion: v1
+    kind: Secret
+    metadata:
+      name: "postgresql-secret-config"
+    stringData:
+      database-name: "keycloak"
+      database-password: "p@ssword"
+      database-user: "admin"
+    
+    
+    
+    
+    #-----------------------------------------------------------------------------------------
+    # POSTGRE DATABASE PERSISTENT VOLUME CLAIM
+    #-----------------------------------------------------------------------------------------
+    apiVersion: v1
+    kind: PersistentVolumeClaim
+    metadata:
+      name: "postgresql-persistent-volume-claim"
+    spec:
+      accessModes:
+      - ReadWriteOnce
+      resources:
+        requests:
+          storage: "1Gi"
+    
+    
+    
+    #-----------------------------------------------------------------------------------------
+    # POSTGRE DATABASE DEPLOYMENTCONFIG
+    #-----------------------------------------------------------------------------------------
+    apiVersion: v1
+    kind: DeploymentConfig
+    metadata:
+      annotations:
+        template.alpha.openshift.io/wait-for-ready: 'true'
+      name: "postgresql"
+    spec:
+      replicas: 1
+      selector:
+        name: "postgresql"
+      strategy:
+        type: Recreate
+      template:
+        metadata:
+          labels:
+            name: "postgresql"
+        spec:
+          containers:
+          - capabilities: {}
+            env:
+            - name: POSTGRESQL_USER
+              valueFrom:
+                secretKeyRef:
+                  key: database-user
+                  name: "postgresql-secret-config"
+            - name: POSTGRESQL_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  key: database-password
+                  name: "postgresql-secret-config"
+            - name: POSTGRESQL_DATABASE
+              valueFrom:
+                secretKeyRef:
+                  key: database-name
+                  name: "postgresql-secret-config"
+            image: " "
+            imagePullPolicy: IfNotPresent
+            livenessProbe:
+              exec:
+                command:
+                - "/usr/libexec/check-container"
+                - "--live"
+              initialDelaySeconds: 120
+              timeoutSeconds: 10
+            name: postgresql
+            ports:
+            - containerPort: 5432
+              protocol: TCP
+            readinessProbe:
+              exec:
+                command:
+                - "/usr/libexec/check-container"
+              initialDelaySeconds: 5
+              timeoutSeconds: 1
+            resources:
+              limits:
+                memory: "512Mi"
+            securityContext:
+              capabilities: {}
+              privileged: false
+            terminationMessagePath: "/dev/termination-log"
+            volumeMounts:
+            - mountPath: "/var/lib/pgsql/data"
+              name: "postgresql-data"
+          dnsPolicy: ClusterFirst
+          restartPolicy: Always
+          volumes:
+          - name: "postgresql-data"
+            persistentVolumeClaim:
+              claimName: "postgresql-persistent-volume-claim"
+      triggers:
+      - imageChangeParams:
+          automatic: true
+          containerNames:
+          - postgresql
+          from:
+            kind: ImageStreamTag
+            name: postgresql:latest
+            namespace: "openshift"
+          lastTriggeredImage: ''
+        type: ImageChange
+      - type: ConfigChange
+    
+    
+    #-----------------------------------------------------------------------------------------
+    # POSTGRE DATABASE SERVICE
+    #-----------------------------------------------------------------------------------------
+    apiVersion: v1
+    kind: Service
+    metadata:
+      annotations:
+      name: "postgresql-network-service"
+    spec:
+      ports:
+      - name: postgresql
+        nodePort: 0
+        port: 5432
+        protocol: TCP
+        targetPort: 5432
+      selector:
+        name: "postgresql"
+      sessionAffinity: None
+      type: ClusterIP
+    status:
+      loadBalancer: {}
