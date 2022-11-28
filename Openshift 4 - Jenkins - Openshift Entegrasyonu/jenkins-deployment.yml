@@ -1,0 +1,91 @@
+#-----------------------------------------------------------------------------------------
+# JENKINS PERSISTENT VOLUME CLAIM
+#-----------------------------------------------------------------------------------------
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: jenkins-persistent-volume-claim
+  namespace: devops
+spec:
+  accessModes:
+    - ReadWriteOnce
+  volumeMode: Filesystem
+  resources:
+    requests:
+      storage: 5Gi
+
+
+#-----------------------------------------------------------------------------------------
+# JENKINS DEPLOYMENT
+#-----------------------------------------------------------------------------------------
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: jenkins-deployment
+  namespace: devops
+  labels:
+    app: jenkins
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: jenkins
+  template:
+    metadata:
+      labels:
+        app: jenkins
+    spec:
+      volumes:
+        - name: jenkins-volume
+          persistentVolumeClaim:
+            claimName: jenkins-persistent-volume-claim
+      containers:
+        - name: jenkins
+          image: jenkins/jenkins
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+          resources: {}
+          volumeMounts:
+            - name: jenkins-volume
+              mountPath: /var/jenkins_home
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          imagePullPolicy: Always
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+      dnsPolicy: ClusterFirst
+      securityContext: {}
+      schedulerName: default-scheduler
+  strategy:
+    type: Recreate
+  revisionHistoryLimit: 10
+  progressDeadlineSeconds: 600
+
+
+
+#-----------------------------------------------------------------------------------------
+# JENKINS SERVICE
+#-----------------------------------------------------------------------------------------
+kind: Service
+apiVersion: v1
+metadata:
+  name: jenkins-svc
+  namespace: devops
+spec:
+  externalTrafficPolicy: Cluster
+  ipFamilies:
+    - IPv4
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+      nodePort: 30000
+  internalTrafficPolicy: Cluster
+  type: NodePort
+  ipFamilyPolicy: SingleStack
+  sessionAffinity: None
+  selector:
+    app: jenkins
+status:
+  loadBalancer: {}
