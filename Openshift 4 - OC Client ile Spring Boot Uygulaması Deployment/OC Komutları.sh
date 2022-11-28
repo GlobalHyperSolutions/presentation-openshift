@@ -1,3 +1,9 @@
+# Cluster üzerindeki yetki verilen projelerin listesini görme
+oc get projects
+
+# OC Client komutları için kullanacağınız projeyi değiştirme
+oc project [PROJECT_NAME]
+
 # BuildConfig Oluşturma
 oc new-build --name=ui-edutr --image-stream=java:11 --binary=true -n hyper-applications-edu-tr
 
