@@ -1,0 +1,171 @@
+Sonarqube Token: squ_80b0dd383d78bd92882f286dc74913c6b529b3b1
+Jenkins WebHook URL: https://jenkins-route-hyper-devops.apps-crc.testing/sonarqube-webhook/
+
+#-----------------------------------------------------------------------------------------
+# SONARQUBE PERSISTENT VOLUME CLAIM (/opt/sonarqube/data)
+#-----------------------------------------------------------------------------------------
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: sonarqube-data
+  namespace: hyper-devops
+spec:
+  accessModes:
+    - ReadWriteOnce
+  volumeMode: Filesystem
+  resources:
+    requests:
+      storage: 2Gi
+
+
+
+#-----------------------------------------------------------------------------------------
+# SONARQUBE PERSISTENT VOLUME CLAIM (/opt/sonarqube/extensions)
+#-----------------------------------------------------------------------------------------
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: sonarqube-extensions
+  namespace: hyper-devops
+spec:
+  accessModes:
+    - ReadWriteOnce
+  volumeMode: Filesystem
+  resources:
+    requests:
+      storage: 2Gi
+
+
+
+#-----------------------------------------------------------------------------------------
+# SONARQUBE PERSISTENT VOLUME CLAIM (/opt/sonarqube/logs)
+#-----------------------------------------------------------------------------------------
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: sonarqube-logs
+  namespace: hyper-devops
+spec:
+  accessModes:
+    - ReadWriteOnce
+  volumeMode: Filesystem
+  resources:
+    requests:
+      storage: 2Gi
+
+
+#-----------------------------------------------------------------------------------------
+# SONARQUBE PERSISTENT VOLUME CLAIM (/opt/sonarqube/temp)
+#-----------------------------------------------------------------------------------------
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: sonarqube-temp
+  namespace: hyper-devops
+spec:
+  accessModes:
+    - ReadWriteOnce
+  volumeMode: Filesystem
+  resources:
+    requests:
+      storage: 2Gi
+
+
+
+#-----------------------------------------------------------------------------------------
+# SONARQUBE DEPLOYMENT
+#-----------------------------------------------------------------------------------------
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: sonarqube
+  namespace: hyper-devops
+  labels:
+    app: sonarqube
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sonarqube
+  template:
+    metadata:
+      labels:
+        app: sonarqube
+    spec:
+      volumes:
+        - name: sonarqube-data
+          persistentVolumeClaim:
+            claimName: sonarqube-data
+        - name: sonarqube-extensions
+          persistentVolumeClaim:
+            claimName: sonarqube-extensions
+        - name: sonarqube-logs
+          persistentVolumeClaim:
+            claimName: sonarqube-logs
+        - name: sonarqube-temp
+          persistentVolumeClaim:
+            claimName: sonarqube-temp
+      containers:
+        - resources: {}
+          terminationMessagePath: /dev/termination-log
+          name: sonarqube
+          env:
+            - name: sonar.jdbc.url
+              value: 'jdbc:postgresql://10.217.5.9:5432/sonar'
+            - name: sonar.jdbc.username
+              value: sonar
+            - name: sonar.jdbc.password
+              value: sonar
+          ports:
+            - containerPort: 9000
+              protocol: TCP
+          imagePullPolicy: IfNotPresent
+          volumeMounts:
+            - name: sonarqube-data
+              mountPath: /opt/sonarqube/data
+            - name: sonarqube-extensions
+              mountPath: /opt/sonarqube/extensions
+            - name: sonarqube-logs
+              mountPath: /opt/sonarqube/logs
+            - name: sonarqube-temp
+              mountPath: /opt/sonarqube/temp
+          terminationMessagePolicy: File
+          image: 'sonarqube:community'
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+      dnsPolicy: ClusterFirst
+      securityContext: {}
+      schedulerName: default-scheduler
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 25%
+      maxSurge: 25%
+  revisionHistoryLimit: 10
+  progressDeadlineSeconds: 600
+
+
+
+#-----------------------------------------------------------------------------------------
+# SONARQUBE SERVICE
+#-----------------------------------------------------------------------------------------
+kind: Service
+apiVersion: v1
+metadata:
+  name: sonarqube
+  namespace: devops
+spec:
+  ipFamilies:
+    - IPv4
+  ports:
+    - protocol: TCP
+      port: 9000
+      targetPort: 9000
+  internalTrafficPolicy: Cluster
+  type: ClusterIP
+  ipFamilyPolicy: SingleStack
+  sessionAffinity: None
+  selector:
+    app: sonarqube
+status:
+  loadBalancer: { }
