@@ -1,0 +1,99 @@
+#-----------------------------------------------------------------------------------------
+# NEXUS3 PERSISTENT VOLUME CLAIM (/nexus-data)
+#-----------------------------------------------------------------------------------------
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: nexus-data
+  namespace: hyper-devops
+spec:
+  accessModes:
+    - ReadWriteOnce
+  volumeMode: Filesystem
+  resources:
+    requests:
+      storage: 2Gi
+
+
+
+
+#-----------------------------------------------------------------------------------------
+# NEXUS3 DEPLOYMENT
+#-----------------------------------------------------------------------------------------
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: nexus3
+  namespace: hyper-devops
+  labels:
+    app: nexus3
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nexus3
+  template:
+    metadata:
+      labels:
+        app: nexus3
+    spec:
+      volumes:
+        - name: nexus-data
+          persistentVolumeClaim:
+            claimName: nexus-data
+      containers:
+        - resources: {}
+          terminationMessagePath: /dev/termination-log
+          name: nexus3
+          env:
+            - name: CONTEXT_PATH
+              value: /
+            - name: INSTALL4J_ADD_VM_PARAMS
+              value: '-Xms1200m -Xmx1200m -Djava.util.prefs.userRoot=/nexus-data/'
+          ports:
+            - containerPort: 8081
+              protocol: TCP
+          imagePullPolicy: Always
+          volumeMounts:
+            - name: nexus-data
+              mountPath: /nexus-data
+          terminationMessagePolicy: File
+          image: sonatype/nexus3
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+      dnsPolicy: ClusterFirst
+      securityContext: {}
+      schedulerName: default-scheduler
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 25%
+      maxSurge: 25%
+  revisionHistoryLimit: 10
+  progressDeadlineSeconds: 600
+
+
+
+#-----------------------------------------------------------------------------------------
+# NEXUS3 SERVICE
+#-----------------------------------------------------------------------------------------
+kind: Service
+apiVersion: v1
+metadata:
+  name: nexus3
+  namespace: hyper-devops
+spec:
+  ipFamilies:
+    - IPv4
+  ports:
+    - protocol: TCP
+      port: 8081
+      targetPort: 8081
+  internalTrafficPolicy: Cluster
+  type: ClusterIP
+  ipFamilyPolicy: SingleStack
+  sessionAffinity: None
+  selector:
+    app: nexus3
+status:
+  loadBalancer: {}
