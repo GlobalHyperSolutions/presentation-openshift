@@ -29,7 +29,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://www.youtube.com/channel/UCLty1q99Ep6nQPmsIsdaUMQ">
+  <a href="https://www.youtube.com/channel/UCLty1q99Ep6nQPmsIsdaUMQ" target="_blank">
     <img src="https://raw.githubusercontent.com/GlobalHyperSolutions/presentation-openshift/master/banner.png" alt="Logo" width="800" height="400">
   </a>
 
@@ -38,14 +38,14 @@
   <p align="center">
     An awesome Openshift 4 Review & Couse For DevOPS 
     <br />
-    <a href="https://github.com/GlobalHyperSolutions/presentation-openshift"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/GlobalHyperSolutions/presentation-openshift" target="_blank"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://www.youtube.com/watch?v=rQEr0NRAYFo">Architecture</a>
+    <a href="https://www.youtube.com/watch?v=rQEr0NRAYFo" target="_blank">Architecture</a>
     ·
-    <a href="https://www.youtube.com/watch?v=CowqImO1rmE&t">Container Technology</a>
+    <a href="https://www.youtube.com/watch?v=CowqImO1rmE&t" target="_blank">Container Technology</a>
     ·
-    <a href="https://www.youtube.com/@hypertechnologies5141/videos">For More Information</a>
+    <a href="https://www.youtube.com/@hypertechnologies5141/videos" target="_blank">For More Information</a>
   </p>
 </div>
 
@@ -62,106 +62,106 @@
     <li>
       <a href="#about-the-project">Openshift 4 - Genel Sunum İçeriği</a>
       <ul>
-        <li><a href="https://www.youtube.com/watch?v=lf9J8tziikA">Sunum Videosu</a></li>
+        <li><a href="https://www.youtube.com/watch?v=lf9J8tziikA" target="_blank">Sunum Videosu</a></li>
         <li><a href="#about-the-project">Dökümanlar</a></li>
       </ul>
     </li>    
     <li>
       <a href="#about-the-project">Openshift 4 - Mimari Alt Yapı</a>
       <ul>
-        <li><a href="https://www.youtube.com/watch?v=rQEr0NRAYFo">Sunum Videosu</a></li>
-        <li><a href="https://github.com/GlobalHyperSolutions/presentation-openshift/tree/master/Openshift%204%20-%20Mimari%20ve%20Alt%20Yap%C4%B1">Dökümanlar</a></li>
+        <li><a href="https://www.youtube.com/watch?v=rQEr0NRAYFo" target="_blank">Sunum Videosu</a></li>
+        <li><a href="https://github.com/GlobalHyperSolutions/presentation-openshift/tree/master/Openshift%204%20-%20Mimari%20ve%20Alt%20Yap%C4%B1" target="_blank">Dökümanlar</a></li>
       </ul>
     </li>    
     <li>
       <a href="#about-the-project">Openshift 4 - CRC Kurulumu</a>
       <ul>
-        <li><a href="https://www.youtube.com/watch?v=DYtQFhbPuQY">Sunum Videosu</a></li>
-        <li><a href="https://github.com/GlobalHyperSolutions/presentation-openshift/tree/master/Openshift%204%20-%20CRC%20Kurulumu">Dökümanlar</a></li>
+        <li><a href="https://www.youtube.com/watch?v=DYtQFhbPuQY" target="_blank">Sunum Videosu</a></li>
+        <li><a href="https://github.com/GlobalHyperSolutions/presentation-openshift/tree/master/Openshift%204%20-%20CRC%20Kurulumu" target="_blank">Dökümanlar</a></li>
       </ul>
     </li>
     <li>
       <a href="#about-the-project">Openshift 4 - Container Teknolojisi</a>
       <ul>
-        <li><a href="https://www.youtube.com/watch?v=CowqImO1rmE">Sunum Videosu</a></li>
-        <li><a href="https://github.com/GlobalHyperSolutions/presentation-openshift/tree/master/Openshift%204%20-%20Container%20Technolojisi">Dökümanlar</a></li>
+        <li><a href="https://www.youtube.com/watch?v=CowqImO1rmE" target="_blank">Sunum Videosu</a></li>
+        <li><a href="https://github.com/GlobalHyperSolutions/presentation-openshift/tree/master/Openshift%204%20-%20Container%20Technolojisi" target="_blank">Dökümanlar</a></li>
       </ul>
     </li>
     <li>
       <a href="#about-the-project">Openshift 4 - Proje Konsepti</a>
       <ul>
-        <li><a href="https://www.youtube.com/watch?v=QfQB882D67Y">Sunum Videosu</a></li>
-        <li><a href="https://github.com/GlobalHyperSolutions/presentation-openshift/tree/master/Openshift%204%20-%20Proje%20Konsepti">Dökümanlar</a></li>
+        <li><a href="https://www.youtube.com/watch?v=QfQB882D67Y" target="_blank">Sunum Videosu</a></li>
+        <li><a href="https://github.com/GlobalHyperSolutions/presentation-openshift/tree/master/Openshift%204%20-%20Proje%20Konsepti" target="_blank">Dökümanlar</a></li>
       </ul>
     </li>
     <li>
       <a href="#about-the-project">Openshift 4 - User Konsepti</a>
       <ul>
-        <li><a href="https://www.youtube.com/watch?v=D0JfuktDDvw">Sunum Videosu</a></li>
-        <li><a href="https://github.com/GlobalHyperSolutions/presentation-openshift/tree/master/Openshift%204%20-%20User%20Konsepti">Dökümanlar</a></li>
+        <li><a href="https://www.youtube.com/watch?v=D0JfuktDDvw" target="_blank">Sunum Videosu</a></li>
+        <li><a href="https://github.com/GlobalHyperSolutions/presentation-openshift/tree/master/Openshift%204%20-%20User%20Konsepti" target="_blank">Dökümanlar</a></li>
       </ul>
     </li>
     <li>
       <a href="#about-the-project">Openshift 4 - ServiceAccount Konsepti</a>
       <ul>
-        <li><a href="https://www.youtube.com/watch?v=OYGrX5pWcu4">Sunum Videosu</a></li>
-        <li><a href="https://github.com/GlobalHyperSolutions/presentation-openshift/tree/master/Openshift%204%20-%20ServiceAccount%20Konsepti">Dökümanlar</a></li>
+        <li><a href="https://www.youtube.com/watch?v=OYGrX5pWcu4" target="_blank">Sunum Videosu</a></li>
+        <li><a href="https://github.com/GlobalHyperSolutions/presentation-openshift/tree/master/Openshift%204%20-%20ServiceAccount%20Konsepti" target="_blank">Dökümanlar</a></li>
       </ul>
     </li>
     <li>
       <a href="#about-the-project">Openshift 4 - DeploymentConfig Konsepti</a>
       <ul>
-        <li><a href="https://www.youtube.com/watch?v=p0MAHeMOgt4">Sunum Videosu</a></li>
-        <li><a href="https://github.com/GlobalHyperSolutions/presentation-openshift/tree/master/Openshift%204%20-%20DeploymentConfig%20Konsepti">Dökümanlar</a></li>
+        <li><a href="https://www.youtube.com/watch?v=p0MAHeMOgt4" target="_blank">Sunum Videosu</a></li>
+        <li><a href="https://github.com/GlobalHyperSolutions/presentation-openshift/tree/master/Openshift%204%20-%20DeploymentConfig%20Konsepti" target="_blank">Dökümanlar</a></li>
       </ul>
     </li>
     <li>
       <a href="#about-the-project">Openshift 4 - Keycloak - Openshift Authentication Operator Entegrasyonu (Kurulum & Konfigurasyonlar)</a>
       <ul>
-        <li><a href="https://www.youtube.com/watch?v=vMHIykNueXo">Sunum Videosu</a></li>
-        <li><a href="https://github.com/GlobalHyperSolutions/presentation-openshift/tree/master/Openshift%204%20-%20Keycloak%20-%20Openshift%20Authentication%20Operator%20Entegrasyonu%20(Kurulum%20%26%20Konfigurasyonlar)">Dökümanlar</a></li>
+        <li><a href="https://www.youtube.com/watch?v=vMHIykNueXo" target="_blank">Sunum Videosu</a></li>
+        <li><a href="https://github.com/GlobalHyperSolutions/presentation-openshift/tree/master/Openshift%204%20-%20Keycloak%20-%20Openshift%20Authentication%20Operator%20Entegrasyonu%20(Kurulum%20%26%20Konfigurasyonlar)" target="_blank">Dökümanlar</a></li>
       </ul>
     </li>
     <li>
       <a href="#about-the-project">Openshift 4 - Jenkins Kurulumu & Konfigurasyonu</a>
       <ul>
-        <li><a href="https://www.youtube.com/watch?v=hOpw4jkhb_c">Sunum Videosu</a></li>
-        <li><a href="https://github.com/GlobalHyperSolutions/presentation-openshift/tree/master/Openshift%204%20-%20Jenkins%20-%20Openshift%20Entegrasyonu">Dökümanlar</a></li>
+        <li><a href="https://www.youtube.com/watch?v=hOpw4jkhb_c" target="_blank">Sunum Videosu</a></li>
+        <li><a href="https://github.com/GlobalHyperSolutions/presentation-openshift/tree/master/Openshift%204%20-%20Jenkins%20-%20Openshift%20Entegrasyonu" target="_blank">Dökümanlar</a></li>
       </ul>
     </li>
     <li>
       <a href="#about-the-project">Openshift 4 - OC Client ile Spring Boot Uygulaması Deployment</a>
       <ul>
-        <li><a href="https://www.youtube.com/watch?v=ZMg3G4Kxdu0">Sunum Videosu</a></li>
-        <li><a href="https://github.com/GlobalHyperSolutions/presentation-openshift/tree/master/Openshift%204%20-%20OC%20Client%20ile%20Spring%20Boot%20Uygulamas%C4%B1%20Deployment">Dökümanlar</a></li>
+        <li><a href="https://www.youtube.com/watch?v=ZMg3G4Kxdu0" target="_blank">Sunum Videosu</a></li>
+        <li><a href="https://github.com/GlobalHyperSolutions/presentation-openshift/tree/master/Openshift%204%20-%20OC%20Client%20ile%20Spring%20Boot%20Uygulamas%C4%B1%20Deployment" target="_blank">Dökümanlar</a></li>
       </ul>
     </li>
     <li>
       <a href="#about-the-project">Openshift 4 - Jenkins Pipeline Konfigurasyonu</a>
       <ul>
-        <li><a href="https://www.youtube.com/watch?v=FxEc-4klMRE">Sunum Videosu</a></li>
-        <li><a href="https://github.com/GlobalHyperSolutions/presentation-openshift/tree/master/Openshift%204%20-%20Jenkins%20Pipeline%20Konfigurasyonu">Dökümanlar</a></li>
+        <li><a href="https://www.youtube.com/watch?v=FxEc-4klMRE" target="_blank">Sunum Videosu</a></li>
+        <li><a href="https://github.com/GlobalHyperSolutions/presentation-openshift/tree/master/Openshift%204%20-%20Jenkins%20Pipeline%20Konfigurasyonu" target="_blank">Dökümanlar</a></li>
       </ul>
     </li>
     <li>
       <a href="#about-the-project">Openshift 4 - Openshift - Jenkins - Sonarqube Entegrasyonu</a>
       <ul>
-        <li><a href="https://www.youtube.com/watch?v=ZysQvsuvobU">Sunum Videosu</a></li>
-        <li><a href="https://github.com/GlobalHyperSolutions/presentation-openshift/tree/master/Openshift%204%20-%20Openshift%20-%20Jenkins%20-%20Sonarqube%20Entegrasyonu">Dökümanlar</a></li>
+        <li><a href="https://www.youtube.com/watch?v=ZysQvsuvobU" target="_blank">Sunum Videosu</a></li>
+        <li><a href="https://github.com/GlobalHyperSolutions/presentation-openshift/tree/master/Openshift%204%20-%20Openshift%20-%20Jenkins%20-%20Sonarqube%20Entegrasyonu" target="_blank">Dökümanlar</a></li>
       </ul>
     </li>
     <li>
       <a href="#about-the-project">Openshift 4 - Openshift - Jenkins - Nexus3 Entegrasyonu - 1</a>
       <ul>
-        <li><a href="https://www.youtube.com/watch?v=dYA_tNYScX4">Sunum Videosu</a></li>
-        <li><a href="https://github.com/GlobalHyperSolutions/presentation-openshift/tree/master/Openshift%204%20-%20Openshift%20-%20Jenkins%20-%20Nexus3%20Entegrasyonu%20-%201">Dökümanlar</a></li>
+        <li><a href="https://www.youtube.com/watch?v=dYA_tNYScX4" target="_blank">Sunum Videosu</a></li>
+        <li><a href="https://github.com/GlobalHyperSolutions/presentation-openshift/tree/master/Openshift%204%20-%20Openshift%20-%20Jenkins%20-%20Nexus3%20Entegrasyonu%20-%201" target="_blank">Dökümanlar</a></li>
       </ul>
     </li>
     <li>
       <a href="#about-the-project">Openshift 4 - Openshift - Jenkins - Nexus3 Entegrasyonu - 2</a>
       <ul>
-        <li><a href="https://www.youtube.com/watch?v=kvWBo4fuows">Sunum Videosu</a></li>
-        <li><a href="https://github.com/GlobalHyperSolutions/presentation-openshift/tree/master/Openshift%204%20-%20Openshift%20-%20Jenkins%20-%20Nexus3%20Entegrasyonu%20-%202">Dökümanlar</a></li>
+        <li><a href="https://www.youtube.com/watch?v=kvWBo4fuows" target="_blank">Sunum Videosu</a></li>
+        <li><a href="https://github.com/GlobalHyperSolutions/presentation-openshift/tree/master/Openshift%204%20-%20Openshift%20-%20Jenkins%20-%20Nexus3%20Entegrasyonu%20-%202" target="_blank">Dökümanlar</a></li>
       </ul>
     </li>
   </ol>
